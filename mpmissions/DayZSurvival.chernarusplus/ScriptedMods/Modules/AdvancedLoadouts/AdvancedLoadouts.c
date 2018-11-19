@@ -427,7 +427,7 @@ class AdvancedLoadouts extends ModuleManager
 
 			ShitBase = player.GetInventory().CreateInInventory( "Rag" );
 			TrashBase = ItemBase.Cast(ShitBase);							
-			TrashBase.SetQuantity(1);
+			TrashBase.SetQuantity(4);
 			Print("StartingEquipSetup>>ERROR:: No Static Custom Loadouts were found!");
 	    }
 	}
@@ -496,7 +496,7 @@ class AdvancedLoadouts extends ModuleManager
 		
 		itemEnt = player.GetInventory().CreateInInventory( "Rag" );
 		itemBs = ItemBase.Cast(itemEnt);
-		itemBs.SetQuantity(6);
+		itemBs.SetQuantity(1);
 
 		player.SetQuickBarEntityShortcut(itemBs, 0, true);
 	}

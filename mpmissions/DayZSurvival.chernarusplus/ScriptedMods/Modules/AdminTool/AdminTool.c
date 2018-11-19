@@ -79,6 +79,10 @@ class AdminTool extends ModuleManager
 		m_ExtendedCommands.Insert("/spi",4);
 		m_ExtendedCommands.Insert("/spg",4);
 		m_ExtendedCommands.Insert("/tpc",4);
+		m_ExtendedCommands.Insert("/akmkit",4) //arnie
+		m_ExtendedCommands.Insert("/m4kit",4) //arnie
+		m_ExtendedCommands.Insert("/foodkit",4) //arnie
+		m_ExtendedCommands.Insert("/hannibal",4) //arnie
 		//Sub commands
 		m_ExtendedCommands.Insert("/export",1);
 		m_ExtendedCommands.Insert("/ammo",1);
@@ -97,6 +101,7 @@ class AdminTool extends ModuleManager
 		m_ExtendedCommands.Insert("/tpalltome",1);
 		m_ExtendedCommands.Insert("/killall",1);
 		m_ExtendedCommands.Insert("/spawncar",1);
+		//m_ExtendedCommands.Insert("/basecar",1);
 	}
 	
 	void AdminTool( DayZSurvival missionServer )
@@ -319,6 +324,78 @@ class AdminTool extends ModuleManager
 								GetGame().RPCSingleParam(Admin, ERPCs.RPC_USER_ACTION_MESSAGE, Msgparam, true, AdminIdentity);
 							break;
 
+							case "/akmkit":
+								oSpawnItemFunc(true,Admin,"AKM");
+								oSpawnItemFunc(true,Admin,"AK_WoodBttstck");
+								oSpawnItemFunc(true,Admin,"AK_WoodHndgrd");
+								oSpawnItemFunc(true,Admin,"Mag_AKM_Drum75Rnd");
+								oSpawnItemFunc(true,Admin,"Mag_AKM_Drum75Rnd");
+								oSpawnItemFunc(true,Admin,"Mag_AKM_Drum75Rnd");
+								oSpawnItemFunc(true,Admin,"KobraOptic");
+								oSpawnItemFunc(true,Admin,"Battery9V");
+								oSpawnItemFunc(true,Admin,"AssaultBag_Black");
+								oSpawnItemFunc(true,Admin,"AK_Suppressor");
+								oSpawnItemFunc(true,Admin,"KashtanOptic");
+								oSpawnItemFunc(true,Admin,"Mag_AKM_Drum75Rnd");
+								strMessage = "AKM Kit Spawned around you!";
+								Msgparam = new Param1<string>( strMessage );
+								GetGame().RPCSingleParam(Admin, ERPCs.RPC_USER_ACTION_MESSAGE, Msgparam, true, AdminIdentity);
+							break;
+
+							case "/m4kit":
+								oSpawnItemFunc(true,Admin,"M4A1");
+								oSpawnItemFunc(true,Admin,"M4_MPBttstck");
+								oSpawnItemFunc(true,Admin,"M4_RISHndgrd");
+								oSpawnItemFunc(true,Admin,"Mag_STANAGCoupled_30Rnd");
+								oSpawnItemFunc(true,Admin,"Mag_STANAGCoupled_30Rnd");
+								oSpawnItemFunc(true,Admin,"Mag_STANAGCoupled_30Rnd");
+								oSpawnItemFunc(true,Admin,"ACOGOptic");
+								oSpawnItemFunc(true,Admin,"Battery9V");
+								oSpawnItemFunc(true,Admin,"AssaultBag_Black");
+								oSpawnItemFunc(true,Admin,"M4_Suppressor");
+								oSpawnItemFunc(true,Admin,"M68Optic");
+								oSpawnItemFunc(true,Admin,"Mag_STANAGCoupled_30Rnd");
+								strMessage = "M4 Kit Spawned around you!";
+								Msgparam = new Param1<string>( strMessage );
+								GetGame().RPCSingleParam(Admin, ERPCs.RPC_USER_ACTION_MESSAGE, Msgparam, true, AdminIdentity);
+							break;	
+
+							case "/foodkit":
+								oSpawnItemFunc(true,Admin,"UKAssVest_Olive");
+								oSpawnItemFunc(true,Admin,"PeachesCan_Opened");
+								oSpawnItemFunc(true,Admin,"PeachesCan_Opened");
+								oSpawnItemFunc(true,Admin,"PeachesCan_Opened");
+								oSpawnItemFunc(true,Admin,"BakedBeansCan_Opened");
+								oSpawnItemFunc(true,Admin,"BakedBeansCan_Opened");
+								oSpawnItemFunc(true,Admin,"BakedBeansCan_Opened");
+								oSpawnItemFunc(true,Admin,"WaterBottle");
+								oSpawnItemFunc(true,Admin,"WaterBottle");
+								oSpawnItemFunc(true,Admin,"WaterBottle");
+								oSpawnItemFunc(true,Admin,"CowSteakMeat");
+								oSpawnItemFunc(true,Admin,"CowSteakMeat");
+								strMessage = "Food Kit Spawned around you!";
+								Msgparam = new Param1<string>( strMessage );
+								GetGame().RPCSingleParam(Admin, ERPCs.RPC_USER_ACTION_MESSAGE, Msgparam, true, AdminIdentity);
+							break;
+
+							case "/hannibal":
+								oSpawnItemFunc(true,Admin,"HumanSteakMeat");
+								oSpawnItemFunc(true,Admin,"HumanSteakMeat");
+								oSpawnItemFunc(true,Admin,"HumanSteakMeat");
+								oSpawnItemFunc(true,Admin,"HumanSteakMeat");
+								oSpawnItemFunc(true,Admin,"HumanSteakMeat");
+								oSpawnItemFunc(true,Admin,"HumanSteakMeat");
+								oSpawnItemFunc(true,Admin,"HumanSteakMeat");
+								oSpawnItemFunc(true,Admin,"HumanSteakMeat");
+								oSpawnItemFunc(true,Admin,"HumanSteakMeat");
+								oSpawnItemFunc(true,Admin,"HumanSteakMeat");
+								oSpawnItemFunc(true,Admin,"HumanSteakMeat");
+								oSpawnItemFunc(true,Admin,"HumanSteakMeat");
+								strMessage = "...where is the nice Ciante?";
+								Msgparam = new Param1<string>( strMessage );
+								GetGame().RPCSingleParam(Admin, ERPCs.RPC_USER_ACTION_MESSAGE, Msgparam, true, AdminIdentity);
+							break;									
+
 							case "/tpc":
 								vector tpPos = cData.ToVector();
 								vector fixPlayerPos;
@@ -498,6 +575,7 @@ class AdminTool extends ModuleManager
 							MyV3S.GetInventory().CreateAttachment("HatchbackWheel");
 							MyV3S.GetInventory().CreateAttachment("HatchbackWheel");
 							MyV3S.GetInventory().CreateAttachment("HatchbackWheel");
+							MyV3S.GetInventory().CreateAttachment("CarRadiator");
 							MyV3S.GetInventory().CreateAttachment("SparkPlug");
 							MyV3S.GetInventory().CreateAttachment("EngineBelt");
 							MyV3S.GetInventory().CreateAttachment("CarBattery");
@@ -506,8 +584,44 @@ class AdminTool extends ModuleManager
 							carfluids.Fill( CarFluid.OIL, 1000 );
 							carfluids.Fill( CarFluid.BRAKE, 1000 );
 							carfluids.Fill( CarFluid.COOLANT, 1000 );
-							    break;
 							break;
+							/*
+							case "/basecar":
+							EntityAI Myhatchback;
+							//EntityAI itemEnt;
+							//ItemBase itemBs;
+							vector carlocNew;
+							vector carlocOld;
+							carlocOld = Admin.GetPosition();
+							carlocNew[0] = carlocOld[0] + 1.5;
+							carlocNew[1] = carlocOld[1] + 0.2;
+							carlocNew[2] = carlocOld[2] + 1.5;
+							Myhatchback = GetGame().CreateObject( "OffroadHatchback", NewPosition, false, true, true );		            
+							Myhatchback.GetInventory().CreateAttachment("HatchbackHood");
+							Myhatchback.GetInventory().CreateAttachment("HatchbackTrunk");
+							Myhatchback.GetInventory().CreateAttachment("HatchbackDoors_CoDriver");
+							Myhatchback.GetInventory().CreateAttachment("HatchbackWheel");
+							Myhatchback.GetInventory().CreateAttachment("HatchbackWheel");
+							Myhatchback.GetInventory().CreateAttachment("HatchbackWheel");
+							Myhatchback.GetInventory().CreateAttachment("HatchbackWheel");
+							Myhatchback.GetInventory().CreateAttachment("CarRadiator");
+							Myhatchback.GetInventory().CreateAttachment("SparkPlug");
+							Myhatchback.GetInventory().CreateAttachment("EngineBelt");
+							Myhatchback.GetInventory().CreateAttachment("CarBattery");
+							itemEnt = Myhatchback.GetInventory().CreateInInventory("Rag");
+							itemBs = ItemBase.Cast(itemEnt);
+							itemBs.SetQuantity(6);
+							
+							auto carfluids1 = Car.Cast( Myhatchback );
+							carfluids1.Fill( CarFluid.FUEL, 1000 );
+							carfluids1.Fill( CarFluid.OIL, 1000 );
+							carfluids1.Fill( CarFluid.BRAKE, 1000 );
+							carfluids1.Fill( CarFluid.COOLANT, 1000 );
+							break;
+							*/
+
+
+							//break;
 
 							default:
 								Msgparam = new Param1<string>( "Error: The following command is Unknown." );
